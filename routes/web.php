@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+//Empresas
+Route::resource('empresas', 'EmpresasController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
