@@ -19,7 +19,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('last_name');
             $table->unsignedBigInteger('company_id');
             $table->string('email')->unique();
-            $table->integer('phone')->nullablle()->unique();
+            $table->string('phone')->nullablle()->unique();
             $table->timestamps();
 
             $table->foreign('company_id')->references('id')->on('empresas')->onDelete('cascade');
