@@ -192,7 +192,7 @@ class EmpresasController extends Controller
                                 <a href="javascript:{}" onclick="document.RemoveCompany'.$empresa->id.'.submit();" data-tooltip="tooltip" title="Remover" class="btn btn-danger rounded"><i class="now-ui-icons ui-1_simple-remove"></i></a>
                                 <form name="RemoveCompany'.$empresa->id.'" action="'.url("empresas/".$empresa->id).'" method="POST">
                                     <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="_token" value="SjMhnltUWJTkL3Joqw8CFVdFjewHkiXN2MruwdBf">
+                                    <input type="hidden" name="_token" value="'.csrf_token().'">
                                 </form>
                             </div>
                         </td>

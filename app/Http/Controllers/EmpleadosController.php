@@ -181,11 +181,11 @@ class EmpleadosController extends Controller
                     </td>
                     <td>
                         <div class="float-right">
-                            <a href="'.route("empresas.edit", $empleado->id).'" class="btn btn-primary rounded" data-tooltip="tooltip" title="Editar"><i class="now-ui-icons ui-1_settings-gear-63"></i></a>
-                            <a href="javascript:{}" onclick="document.RemoveCompany'.$empleado->id.'.submit();" data-tooltip="tooltip" title="Remover" class="btn btn-danger rounded"><i class="now-ui-icons ui-1_simple-remove"></i></a>
-                            <form name="RemoveCompany'.$empleado->id.'" action="'.route('empresas.destroy', $empleado->id).'" method="POST">
+                            <a href="'.route("empleados.edit", $empleado->id).'" class="btn btn-primary rounded" data-tooltip="tooltip" title="Editar"><i class="now-ui-icons ui-1_settings-gear-63"></i></a>
+                            <a href="javascript:{}" onclick="document.RemoveEmpleado'.$empleado->id.'.submit();" data-tooltip="tooltip" title="Remover" class="btn btn-danger rounded"><i class="now-ui-icons ui-1_simple-remove"></i></a>
+                            <form name="RemoveEmpleado'.$empleado->id.'" action="'.route('empleados.destroy', $empleado->id).'" method="POST">
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="SjMhnltUWJTkL3Joqw8CFVdFjewHkiXN2MruwdBf">
+                                <input type="hidden" name="_token" value="'.csrf_token().'">
                             </form>
                         </div>
                     </td>

@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 //Empresas
-Route::resource('empresas', 'EmpresasController');
+Route::resource('empresas', 'EmpresasController')->middleware('permission:empresas');
 Route::post('/buscar/empresas', 'EmpresasController@search')->name('empresasSearch');
 
 //Empresas
-Route::resource('empleados', 'EmpleadosController');
+Route::resource('empleados', 'EmpleadosController')->middleware('permission:empleados');
 Route::post('/buscar/empleados', 'EmpleadosController@search')->name('empleadosSearch');
 
 Auth::routes(['register' => false]);

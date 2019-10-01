@@ -13,6 +13,9 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
+        Permission::create(['name' => 'empresas']);
+        Permission::create(['name' => 'empleados']);
+
         $Admin = Role::create(['name' => 'Admin']);
         $Admin->givePermissionTo(Permission::all());
     }

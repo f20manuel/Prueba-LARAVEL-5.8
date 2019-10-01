@@ -29,10 +29,10 @@
           -->
             <div class="logo">
               <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-                CT
+                V5.8
               </a>
               <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-                Creative Tim
+                PRUEBA LARAVEL
               </a>
             </div>
             <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -128,7 +128,7 @@
   <!--  Notifications Plugin    -->
   <script src="{{ asset('assets/js/plugins/bootstrap-notify.js') }}" defer></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="{{ asset('assets/js/now-ui-dashboard.min.js?v=1.3.0" type="text/javascript') }}" defer></script>
+  <script src="{{ asset('assets/js/now-ui-dashboard.min.js?v=1.3.0') }}" type="text/javascript" defer></script>
   <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="{{ asset('assets/demo/demo.js') }}" defer></script>
   <script src="{{ asset('js/main.js') }}" defer></script>
