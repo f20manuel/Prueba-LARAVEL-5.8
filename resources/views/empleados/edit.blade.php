@@ -1,4 +1,4 @@
-<?php $name = 'Editar '.$empleado->name; ?>
+<?php $name = 'Editar a '.$empleado->first_name.' '.$empleado->last_name; ?>
 @extends('layouts.app')
 
 @section('ClassBody', '')
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <a href="{{ route('empleados.index') }}" class="btn btn-secondary">Volver a Empleados</a>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </form>

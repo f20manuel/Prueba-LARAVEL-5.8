@@ -23,6 +23,6 @@ Route::post('/buscar/empresas', 'EmpresasController@search')->name('empresasSear
 Route::resource('empleados', 'EmpleadosController');
 Route::post('/buscar/empleados', 'EmpleadosController@search')->name('empleadosSearch');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
