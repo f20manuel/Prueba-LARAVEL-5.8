@@ -15,14 +15,15 @@
                             <h4 class="card-title">{{ $name }}</h4>
                         </div>
                         <div class="col-md-6 pt-2 align-self-center">
-                            <form>
+                            <form id="search_empresas" action="{{ route('empresasSearch') }}" method="POST">
+                                @csrf
                                 <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Buscar en Empresas">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                <input id="search" name="searchEmpresas" type="text" value="" class="form-control" placeholder="Buscar en Empresas">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                        <i class="now-ui-icons ui-1_zoom-bold"></i>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             </form>
                         </div>
@@ -101,7 +102,8 @@
                                     Acción
                                 </th>
                             </thead>
-                            <tbody>
+                            @if($empresas->total() > 0)
+                            <tbody id="tbodyEmpresas">
                                 @foreach ($empresas as $empresa)
                                 <tr>
                                     <td>
@@ -131,12 +133,63 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            @else
+                            <tbody id="tbodyEmpresas">
+                                @foreach ($empresas as $empresa)
+                                <tr>
+                                    <td>
+                                        <h1>No hay Empresas</h1>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                            @endif
                         </table>
+                    </div>
+                    <div class="row justify-content-center">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item @if($empresas->onFirstPage() == 1) disabled @endif">
+                                    <a class="page-link" href="{{ $empresas->previousPageUrl() }}">
+                                        Anterior
+                                    </a>
+                                </li>
+                                @for($i=1; $i<=$empresas->lastPage(); $i++)
+                                <li class="page-item @if($empresas->currentPage() == $i) active @endif()">
+                                    <a class="page-link" href="{{ $empresas->url($i) }}">{{ $i }}</a>
+                                </li>
+                                @endfor
+                                <li class="page-item"><a class="page-link @if($empresas->currentPage() == $empresas->lastPage()) disabled @endif" href="{{ $empresas->nextPageUrl() }}">Siguiente</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+document.getElementById("file-input").onchange = function(e) {
+    // Creamos el objeto de la clase FileReader
+    let reader = new FileReader();
+
+    // Leemos el archivo subido y se lo pasamos a nuestro fileReader
+    reader.readAsDataURL(e.target.files[0]);
+
+        // Le decimos que cuando este listo ejecute el código interno
+        reader.onload = function(){
+            let preview = document.getElementById('preview'),
+                    image = document.createElement('img');
+
+            image.src = reader.result;
+
+            preview.innerHTML = '';
+            preview.append(image);
+
+            $('#text').hide();
+        };
+    };
+</script>
 
 @endsection

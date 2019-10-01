@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 //Empresas
 Route::resource('empresas', 'EmpresasController');
+Route::post('/buscar/empresas', 'EmpresasController@search')->name('empresasSearch');
+
+//Empresas
+Route::resource('empleados', 'EmpleadosController');
+Route::post('/buscar/empleados', 'EmpleadosController@search')->name('empleadosSearch');
 
 Auth::routes();
 

@@ -49,6 +49,12 @@
                     <p>Empresas</p>
                   </a>
                 </li>
+                <li class="@if($name == 'Empleados') active @endif">
+                  <a href="{{ route('empleados.index') }}">
+                    <i class="now-ui-icons users_circle-08"></i>
+                    <p>Empleados</p>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
